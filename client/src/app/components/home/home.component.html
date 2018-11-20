@@ -1,0 +1,35 @@
+<div class="dataset-options">
+    <div class="dataset-upload-option">
+        <input id="file-upload" type="file" 
+                placeholder="Upload file" (change)="fileUpload($event)" style="display:none;" />
+        <a href="javascript:" class="dataset-upload-action" (click)="triggerFileUploadClick()">
+            <svg class="dataset-upload-action-icon">
+                <use xlink:href="assets/images/sprite.svg#plus"></use>
+            </svg>
+            Upload dataset
+        </a>
+    </div>
+    <div class="dataset-generate-insights">
+        <a href="javascript:" class="dataset-upload-action" (click)="navigateToMergeInsights()">
+            <svg class="dataset-upload-action-icon">
+                <use xlink:href="assets/images/sprite.svg#analytics"></use>
+            </svg>
+            Generate Insights
+        </a>
+    </div>
+</div>
+<div class="dataset">
+    <div class="dataset-detail" *ngFor="let file of files">
+            <input type="checkbox" class="dataset-checkbox-input" id="{{file}}" value="{{file}}" name="dataset-select" (change)="onCheckboxChecked($event)">
+            <label for="{{file}}" class="dataset-label"></label>
+            <div class="dataset-info">
+                <h4 class="dataset-name">{{file}}</h4>
+                <svg class="dataset-icon data-csv">
+                    <use xlink:href="assets/images/sprite.svg#csv"></use>
+                </svg>
+                <p class="dataset-text">Generate Insights</p>
+            </div>
+
+        
+    </div>
+</div>

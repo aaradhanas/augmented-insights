@@ -1,0 +1,127 @@
+<!--div *ngIf="chart">
+  <canvas id="canvas">{{ chart }}</canvas>
+</div-->
+<div class="container">
+    <header class="header">
+        <a class="header-icon-box" (click)="navigateToHomePage()">
+            <img src="assets/images/title-icon.png" alt="Title-Icon" class="header-icon">
+            <h2 class="header-text"><span>A</span>nvayam</h2>
+        </a>
+
+        <a *ngIf = "!isHomePage()"(click)="sendSignalToInsightsPage()" style="cursor: pointer; display: flex;margin-left: auto;
+        padding-right: 5rem;">
+            <h2 class="header-text">Show all</h2>
+        </a>
+
+        <a *ngIf = "isDeployVisible()"(click)="deployToZementis()" style="cursor: pointer; display: flex;
+        padding-right: 5rem;">
+            <h2 class="header-text">Deploy to Zementis</h2>
+        </a>
+    </header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+</div>
+
+<!-- Automobile -->
+<div class="action" id="action-automobile">
+    <div class="action-content">
+        <h4 class="action__heading">Take Action</h4>
+        <a (click)="onActionCloseClicked($event)" href="javascript:;" class="action__close">&times;</a>
+        <nav class="action__nav">
+            <ul class="action__list">
+                <li class="action__item">
+                    <a href="javascript:;" class="action__link" (click)="performAction(1)">
+                        <div class="action__icons">
+                            <svg class="action__icon">
+                                <use xlink:href="assets/images/sprite.svg#businessman"></use>
+                            </svg>
+                            <svg class="action__icon action__icon--done" id="done-1">
+                                <use xlink:href="assets/images/sprite.svg#check"></use>
+                            </svg>
+                        </div>
+                        <span class="action__text">Contact Dealer</span>
+                    </a>
+                </li>
+                <li class="action__item">
+                    <a href="javascript:;" class="action__link" (click)="performAction(2)">
+                        <div class="action__icons">
+                            <svg class="action__icon">
+                                <use xlink:href="assets/images/sprite.svg#clock"></use>
+                            </svg>
+                            <svg class="action__icon action__icon--done" id="done-2">
+                                <use xlink:href="assets/images/sprite.svg#check"></use>
+                            </svg>
+                        </div>
+                        <span class="action__text">Schedule Meeting</span>
+                    </a>
+                </li>
+                <li class="action__item">
+                        <a href="javascript:;" class="action__link" (click)="performAction(3)">
+                            <div class="action__icons">
+                                <svg class="action__icon">
+                                    <use xlink:href="assets/images/sprite.svg#team"></use>
+                                </svg>
+                                <svg class="action__icon action__icon--done" id="done-3">
+                                    <use xlink:href="assets/images/sprite.svg#check"></use>
+                                </svg>
+                            </div>
+                            <span class="action__text">Inform Quality Assurance</span>
+                        </a>
+                    </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- Analytics -->
+<div class="action" id="action-analytics">
+        <div class="action-content">
+            <h4 class="action__heading">Take Action</h4>
+            <a (click)="onActionCloseClicked($event)" href="javascript:;" class="action__close">&times;</a>
+            <nav class="action__nav">
+                <ul class="action__list">
+                    <li class="action__item">
+                        <a href="javascript:;" class="action__link" (click)="performAction(4)">
+                            <div class="action__icons">
+                                <svg class="action__icon">
+                                    <use xlink:href="assets/images/sprite.svg#team-1"></use>
+                                </svg>
+                                <svg class="action__icon action__icon--done" id="done-4">
+                                    <use xlink:href="assets/images/sprite.svg#check"></use>
+                                </svg>
+                            </div>
+                            <span class="action__text">Notify Network Team</span>
+                        </a>
+                    </li>
+    
+                    <li class="action__item">
+                        <a href="javascript:;" class="action__link" (click)="performAction(5)">
+                            <div class="action__icons">
+                                <svg class="action__icon">
+                                    <use xlink:href="assets/images/sprite.svg#email"></use>
+                                </svg>
+                                <svg class="action__icon action__icon--done" id="done-5">
+                                    <use xlink:href="assets/images/sprite.svg#check"></use>
+                                </svg>
+                            </div>
+                            <span class="action__text">Send e-mail</span>
+                        </a>
+                    </li>
+    
+                    <li class="action__item">
+                        <a href="javascript:;" class="action__link" (click)="performAction(6)">
+                            <div class="action__icons">
+                                <svg class="action__icon">
+                                    <use xlink:href="assets/images/sprite.svg#clock"></use>
+                                </svg>
+                                <svg class="action__icon action__icon--done" id="done-6">
+                                    <use xlink:href="assets/images/sprite.svg#check"></use>
+                                </svg>
+                            </div>
+                            <span class="action__text">Schedule Meeting</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>

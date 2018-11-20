@@ -1,0 +1,15 @@
+{
+    "title": "<Title>",
+    "chart": {
+        "data": {
+            "X1" : "Y1",
+            "X2" : "Y2"
+        },
+        "columnName": "Col1"
+        
+    },
+    "insights": [
+        "Insight 1",
+        "Insight 2"
+    ]
+}

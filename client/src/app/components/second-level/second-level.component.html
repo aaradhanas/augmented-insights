@@ -1,0 +1,23 @@
+<div class="content">
+    <div *ngFor="let dataModel of dataModels; let i = index" id="box_{{i}}" class="chart-insights-box">
+        <div class="chart">
+            <canvas id="canvas_{{dataModel.title}}"> {{ dataModel.chart}} </canvas>
+        </div>
+        <div class="options">
+            <svg class="svg-icon">
+                <use xlink:href="assets/images/sprite.svg#like"></use>
+            </svg>
+            <svg class="svg-icon">
+                <use xlink:href="assets/images/sprite.svg#share"></use>
+            </svg>
+        </div>
+        <div class="insights" *ngIf="dataModel.insights">
+            {{ dataModel.insights }}
+        </div>
+        <div class="insights-options" *ngIf="dataModel.insights">
+            <svg class="svg-icon">
+                <use xlink:href="assets/images/sprite.svg#speaker"></use>
+            </svg>
+        </div>
+    </div>
+</div>

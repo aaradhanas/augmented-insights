@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_3" version="4.3Ext">
+    <Header copyright="Copyright (c) 2018 Software AG" description="Default description">
+        <Timestamp>2018-10-18 20:18:32.304721</Timestamp>
+    </Header>
+    <MiningBuildTask>
+        <Extension value="Pipeline(memory=None,
+    steps=[('svm',SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma='auto', kernel='linear',
+  max_iter=-1, probability=False, random_state=0, shrinking=True,
+  tol=0.001, verbose=False))])">
+            
+        </Extension>
+    </MiningBuildTask>
+    <DataDictionary numberOfFields="4">
+        <DataField name="RPM" optype="continuous" dataType="double"/>
+        <DataField name="Temperature" optype="continuous" dataType="double"/>
+        <DataField name="Sound" optype="continuous" dataType="double"/>
+        <DataField name="Maintenance" optype="categorical" dataType="integer">
+            <Value value="0"/>
+            <Value value="1"/>
+        </DataField>
+    </DataDictionary>
+    <SupportVectorMachineModel functionName="classification" threshold="0" classificationMethod="OneAgainstOne">
+        <MiningSchema>
+            <MiningField name="RPM" usageType="active" optype="continuous"/>
+            <MiningField name="Temperature" usageType="active" optype="continuous"/>
+            <MiningField name="Sound" usageType="active" optype="continuous"/>
+            <MiningField name="Maintenance" usageType="target" optype="categorical"/>
+        </MiningSchema>
+        <Output>
+            <OutputField name="predicted_Maintenance" feature="predictedValue"/>
+            <OutputField name="probability_0" optype="continuous" dataType="double" feature="probability" value="0"/>
+            <OutputField name="probability_1" optype="continuous" dataType="double" feature="probability" value="1"/>
+        </Output>
+        <LinearKernelType description="Linear Kernel Type"/>
+        <VectorDictionary>
+            <VectorFields>
+                <FieldRef field="RPM"/>
+                <FieldRef field="Temperature"/>
+                <FieldRef field="Sound"/>
+            </VectorFields>
+            <VectorInstance id="8">
+                <REAL-SparseArray n="3" defaultValue="0">
+                    <Indices>1 2 3</Indices>
+                    <REAL-Entries>-1.0691812703724977 -0.4199461398809282 0.2013468165642062</REAL-Entries>
+                </REAL-SparseArray>
+            </VectorInstance>
+            <VectorInstance id="31">
+                <REAL-SparseArray n="3" defaultValue="0">
+                    <Indices>1 2 3</Indices>
+                    <REAL-Entries>1.5125003336976652 -0.5546458451257541 1.3087543076673476</REAL-Entries>
+                </REAL-SparseArray>
+            </VectorInstance>
+            <VectorInstance id="4">
+                <REAL-SparseArray n="3" defaultValue="0">
+                    <Indices>1 2 3</Indices>
+                    <REAL-Entries>-0.20862073568244333 1.331150028301809 1.8624580532189183</REAL-Entries>
+                </REAL-SparseArray>
+            </VectorInstance>
+            <VectorInstance id="21">
+                <REAL-SparseArray n="3" defaultValue="0">
+                    <Indices>1 2 3</Indices>
+                    <REAL-Entries>0.22165953166258381 1.48962026976631 -1.4597644200905036</REAL-Entries>
+                </REAL-SparseArray>
+            </VectorInstance>
+        </VectorDictionary>
+        <SupportVectorMachine targetCategory="0" alternateTargetCategory="1">
+            <SupportVectors>
+                <SupportVector vectorId="8"/>
+                <SupportVector vectorId="31"/>
+                <SupportVector vectorId="4"/>
+                <SupportVector vectorId="21"/>
+            </SupportVectors>
+            <Coefficients absoluteValue="-0.5255629637476716">
+                <Coefficient value="-0.3644424869255658"/>
+                <Coefficient value="-0.21389891552851065"/>
+                <Coefficient value="0.3771321662409445"/>
+                <Coefficient value="0.20120923621313194"/>
+            </Coefficients>
+        </SupportVectorMachine>
+    </SupportVectorMachineModel>
+</PMML>
